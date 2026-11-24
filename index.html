@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6e8f3" />
+  <title>あなたの恋愛偏差値診断 〜60問で暴くリアルな恋愛力〜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
+
+  <main class="app">
+    <!-- スタート画面 -->
+    <section id="screen-start" class="screen active">
+      <div class="card start-card">
+        <div class="badge">LOVE DEVIATION TEST</div>
+        <div class="hero-heart" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f472b6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><path fill="url(#hg)" d="M32 56s-22-13.4-22-30a12 12 0 0 1 22-6.6A12 12 0 0 1 54 26c0 16.6-22 30-22 30z"/></svg>
+        </div>
+        <h1 class="title">
+          <span class="title-sub">あなたの</span>
+          <span class="title-main">恋愛偏差値診断</span>
+          <span class="title-catch">〜60問で暴くリアルな恋愛力〜</span>
+        </h1>
+        <ul class="meta">
+          <li><span class="meta-num">60</span><span class="meta-label">問</span></li>
+          <li><span class="meta-num">3</span><span class="meta-label">分くらい</span></li>
+          <li><span class="meta-num">5</span><span class="meta-label">軸で分析</span></li>
+        </ul>
+        <p class="lead">
+          LINEの返し方、デートの店選び、落ち込んだ相手への接し方…。<br />
+          リアルな恋愛シーンへの直感的な回答から、あなたの<strong>恋愛偏差値</strong>と隠れた強みを分析します。
+        </p>
+        <button id="btn-start" class="btn-primary">診断をスタートする</button>
+        <p class="note">深く考えず、直感でタップするのがコツ ♡</p>
+      </div>
+      <button id="btn-skip" class="btn-skip" type="button">テスト用スキップ</button>
+    </section>
+
+    <!-- 質問画面 -->
+    <section id="screen-quiz" class="screen">
+      <header class="quiz-head">
+        <div class="progress-row">
+          <span id="q-cat" class="q-cat"></span>
+          <span class="q-count"><b id="q-num">1</b> / 60問</span>
+        </div>
+        <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+      </header>
+
+      <div class="card quiz-card">
+        <div id="q-wrap" class="q-wrap">
+          <div class="q-label">Q<span id="q-label-num">1</span></div>
+          <p id="q-text" class="q-text"></p>
+          <div id="answers" class="answers" role="radiogroup" aria-label="回答"></div>
+        </div>
+      </div>
+
+      <button id="btn-back" class="btn-back" type="button">← 前の質問に戻る</button>
+    </section>
+
+    <!-- 結果画面 -->
+    <section id="screen-result" class="screen">
+      <div class="card result-card" id="result-card">
+        <div class="badge">YOUR LOVE SCORE</div>
+        <p class="result-label">恋愛偏差値</p>
+        <div class="score-wrap">
+          <span id="score" class="score">0.0</span>
+        </div>
+        <div id="rank-pill" class="rank-pill">
+          <span id="rank-stars" class="rank-stars"></span>
+          <span id="rank-title" class="rank-title"></span>
+        </div>
+        <p id="rank-desc" class="rank-desc"></p>
+        <p id="percentile" class="percentile"></p>
+
+        <div class="radar-box">
+          <svg id="radar" viewBox="0 0 320 300" role="img" aria-label="5軸レーダーチャート"></svg>
+        </div>
+        <ul id="axis-list" class="axis-list"></ul>
+        <p class="watermark">#恋愛偏差値診断</p>
+      </div>
+
+      <div class="card detail-card">
+        <h2 class="h2"><span class="h2-icon">✦</span>あなたの強み</h2>
+        <p id="strength" class="body-text"></p>
+        <h2 class="h2"><span class="h2-icon">♡</span>恋愛傾向</h2>
+        <p id="tendency" class="body-text"></p>
+        <h2 class="h2"><span class="h2-icon">↑</span>偏差値アップのワンポイント</h2>
+        <div id="advice" class="advice"></div>
+      </div>
+
+      <div class="actions">
+        <a id="btn-share" class="btn-x" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2H21.5l-7.11 8.128L22.75 22h-6.555l-5.13-6.708L5.2 22H1.94l7.606-8.694L1.5 2h6.72l4.636 6.13L18.244 2zm-1.15 18.04h1.804L7.01 3.86H5.074L17.094 20.04z"/></svg>
+          結果をX（Twitter）でシェアする
+        </a>
+        <button id="btn-retry" class="btn-ghost" type="button">もう一度診断する</button>
+      </div>
+      <p class="footer-note">※本診断はエンタメ目的の自己分析ツールです</p>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
